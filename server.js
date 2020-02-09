@@ -19,6 +19,7 @@ app.use('/api/adminAuth', require('./routes/admin/adminAuth'));
 //Rutas users
 app.use('/api/user', require('./routes/user/users'));
 app.use('/api/userAuth', require('./routes/user/usersAuth'));
+app.use('/api/feed', require('./routes/user/usersPost'));
 
 //Rutas enterprise
 app.use('/api/comp', require('./routes/company/company'));

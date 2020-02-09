@@ -75,7 +75,7 @@ router.post(
   }
 );
 
-//@ruta 				GET api/admins
+//@ruta 				GET api/user
 //@descripcion 			User obtiene todos los usuarios
 //@acces 				publico
 
