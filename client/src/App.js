@@ -2,14 +2,14 @@ import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Alerts from './components/layout/Alerts';
-import Home from './components/pages/Home';
+import Feed from './components/pages/Feed';
 import About from './components/pages/About';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import PrivateRoute from './components/routing/PrivateRoute';
 import './App.css';
 
-import PostState from './context/user/PostState';
+import PostState from './context/post/PostState';
 import AuthState from './context/auth/AuthState';
 import AlertState from './context/alert/AlertState';
 import setAuthToken from './utils/setAuthToken';
@@ -29,7 +29,7 @@ const App = () => {
               <div className='container'>
                 <Alerts />
                 <Switch>
-                  <PrivateRoute exact path='/' component={Home} />
+                  <PrivateRoute exact path='/' component={Feed} />
                   <Route exact path='/About' component={About} />
                   <Route exact path='/Register' component={Register} />
                   <Route exact path='/Login' component={Login} />

@@ -76,12 +76,14 @@ router.get('/', authU, (req, res, next) => {
 });
 
 router.post('/', authU, upload.single('productImage'), (req, res, next) => {
+  const { title, description, productImage } = req.body;
+
   const post = new Post({
     user: req.user.id,
     _id: new mongoose.Types.ObjectId(),
-    title: req.body.title,
-    description: req.body.description,
-    productImage: req.file.path
+    title: title,
+    description: description,
+    productImage: req.file.filename
   });
   post
     .save()
