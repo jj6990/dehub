@@ -1,5 +1,7 @@
 import {
   ADD_POST,
+  GET_POST,
+  CLEAR_POST,
   DELETE_POST,
   SET_CURRENT,
   CLEAR_CURRENT,
@@ -11,10 +13,17 @@ import {
 
 export default (state, action) => {
   switch (action.type) {
+    case GET_POST:
+      return {
+        ...state,
+        posts: action.payload,
+        loading: false
+      };
     case ADD_POST:
       return {
         ...state,
-        posts: [...state.posts, action.payload]
+        posts: [...state.posts, action.payload],
+        loading: false
       };
 
     case UPDATE_POST:
@@ -22,12 +31,14 @@ export default (state, action) => {
         ...state,
         posts: state.posts.map(post =>
           post.id === action.payload.id ? action.payload : post
-        )
+        ),
+        loading: false
       };
     case DELETE_POST:
       return {
         ...state,
-        posts: state.posts.filter(post => post.id !== action.payload)
+        posts: state.posts.filter(post => post.id !== action.payload),
+        loading: false
       };
     case SET_CURRENT:
       return {

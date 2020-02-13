@@ -76,6 +76,7 @@ router.get('/', authU, (req, res, next) => {
 });
 
 router.post('/', authU, upload.single('productImage'), (req, res, next) => {
+  console.log(req.body);
   const { title, description, productImage } = req.body;
 
   const post = new Post({
@@ -83,7 +84,7 @@ router.post('/', authU, upload.single('productImage'), (req, res, next) => {
     _id: new mongoose.Types.ObjectId(),
     title: title,
     description: description,
-    productImage: req.file.filename
+    productImage: req.file.path
   });
   post
     .save()
@@ -95,6 +96,7 @@ router.post('/', authU, upload.single('productImage'), (req, res, next) => {
           title: result.title,
           description: result.description,
           _id: result._id,
+          productImage: result.productImage,
           request: {
             type: 'GET',
             url: 'http://localhost:5000/posts/' + result._id

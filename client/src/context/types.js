@@ -1,9 +1,11 @@
+export const GET_POST = 'GET_CONTACTS';
 export const ADD_POST = 'ADD_POST';
 export const DELETE_POST = 'DELETE_POST';
 export const SET_CURRENT = 'SET_CURRENT';
 export const CLEAR_CURRENT = 'CLEAR_CURRENT';
 export const UPDATE_POST = 'UPDATE_POST';
 export const FILTER_POSTS = 'FILTER_POSTS';
+export const CLEAR_POST = 'CLEAR_POST';
 export const CLEAR_FILTER = 'CLEAR_FILTER';
 export const POST_ERROR = 'POST_ERROR';
 

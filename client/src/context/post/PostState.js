@@ -3,6 +3,8 @@ import axios from 'axios';
 import PostContext from './postContext';
 import postReducer from './postReducer';
 import {
+  GET_POST,
+  CLEAR_POST,
   ADD_POST,
   DELETE_POST,
   SET_CURRENT,
@@ -17,12 +19,26 @@ const PostState = props => {
   const initialState = {
     posts: [],
     current: null,
-    filtered: null
+    filtered: null,
+    error: null
   };
 
   const [state, dispatch] = useReducer(postReducer, initialState);
 
-  //add user
+  //GETPOST
+  const GetPosts = async () => {
+    try {
+      const res = await axios.post('/api/feed');
+      console.log(res.post);
+      dispatch({ type: GET_POST, payload: res.post });
+    } catch (err) {
+      dispatch({
+        type: POST_ERROR,
+        payload: err.response.msg
+      });
+    }
+  };
+  //add post
 
   const AddPost = async post => {
     const config = {
@@ -77,6 +93,7 @@ const PostState = props => {
         filtered: state.filtered,
         error: state.error,
         AddPost,
+        GetPosts,
         DeletePost,
         SetCurrent,
         ClearCurrent,

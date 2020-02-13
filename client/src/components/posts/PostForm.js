@@ -43,12 +43,7 @@ const PostForm = props => {
   };
 
   return (
-    <form
-      onSubmit={onSubmit}
-      enctype='multipart/form-data'
-      action='/profile'
-      method='post'
-    >
+    <form onSubmit={onSubmit} encType='multipart/form-data'>
       <h2 className='text-primary'>{current ? 'Update Post' : 'Add Post'}</h2>
       <input
         type='text'

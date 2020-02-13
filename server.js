@@ -1,10 +1,19 @@
 const express = require('express');
 const connectDB = require('./config/db');
+const bodyParser = require('body-parser');
+const path = require('path');
+const cookieParser = require('cookie-parser');
 
 const app = express();
 
 //connect db
 connectDB();
+
+app.use('/uploads', express.static('uploads'));
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
 //init middleware
 app.use(express.json({ extended: false }));
