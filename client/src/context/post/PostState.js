@@ -28,13 +28,13 @@ const PostState = props => {
   //GETPOST
   const GetPosts = async () => {
     try {
-      const res = await axios.post('/api/feed');
-      console.log(res.post);
-      dispatch({ type: GET_POST, payload: res.post });
+      const res = await axios.get('/api/feed');
+      console.log(res);
+      dispatch({ type: GET_POST, payload: res.data.posts });
     } catch (err) {
       dispatch({
         type: POST_ERROR,
-        payload: err.response.msg
+        payload: err.response
       });
     }
   };
@@ -50,15 +50,18 @@ const PostState = props => {
     try {
       const res = await axios.post('/api/feed', post, config);
       console.log(res.post);
-      dispatch({ type: ADD_POST, payload: res.post });
+      dispatch({ type: ADD_POST, payload: res.data });
     } catch (err) {
       dispatch({
         type: POST_ERROR,
-        payload: err.response.msg
+        payload: err.response
       });
     }
   };
-
+  //post error
+  const PostError = id => {
+    dispatch({ type: DELETE_POST, payload: id });
+  };
   //delete post
   const DeletePost = id => {
     dispatch({ type: DELETE_POST, payload: id });
@@ -99,7 +102,8 @@ const PostState = props => {
         ClearCurrent,
         UpdatePost,
         FilterPost,
-        ClearFilter
+        ClearFilter,
+        PostError
       }}
     >
       {props.children}

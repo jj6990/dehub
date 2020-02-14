@@ -11,6 +11,7 @@ const Posts = () => {
 
   useEffect(() => {
     GetPosts();
+    //eslint-disable-next-line
   }, []);
 
   if (posts.length === 0) {
@@ -23,12 +24,12 @@ const Posts = () => {
         <TransitionGroup>
           {filtered !== null
             ? filtered.map(post => (
-                <CSSTransition key={post.id} timeout={500}>
+                <CSSTransition key={post._id} timeout={500}>
                   <PostItem post={post} />
                 </CSSTransition>
               ))
             : posts.map(post => (
-                <CSSTransition key={post.id} timeout={500}>
+                <CSSTransition key={post._id} timeout={500}>
                   <PostItem post={post} />
                 </CSSTransition>
               ))}

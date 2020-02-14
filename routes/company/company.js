@@ -6,7 +6,7 @@ const config = require('config');
 const authC = require('../../middleware/authC');
 const { check, validationResult } = require('express-validator');
 
-const Comp = require('../../models/company/Company');
+const Comp = require('../../models/company/company');
 
 //////////////Admins///////////////////
 //@ruta 				POST api/company

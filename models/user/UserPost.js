@@ -6,6 +6,14 @@ const UserPostSchema = mongoose.Schema({
     ref: 'users'
   },
   _id: mongoose.Schema.Types.ObjectId,
+  title: {
+    type: String,
+    require: true
+  },
+  description: {
+    type: String,
+    require: true
+  },
   productImage: {
     type: String,
     required: true

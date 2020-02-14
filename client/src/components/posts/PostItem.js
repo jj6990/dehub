@@ -6,7 +6,7 @@ const PostItem = ({ post }) => {
   const postContext = useContext(PostContext);
   const { DeletePost, SetCurrent, ClearCurrent } = postContext;
 
-  const { title, description, productImage, id } = post;
+  const { id, title, description, productImage } = post;
 
   const onDelete = () => {
     DeletePost(id);
@@ -18,7 +18,8 @@ const PostItem = ({ post }) => {
       <h3 className='text-primary text-left'>
         {title}
         {description}
-        {productImage}
+
+        <img src={productImage} />
       </h3>
       <ul>
         {title && (
