@@ -7,6 +7,7 @@ import About from './components/pages/About';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import PrivateRoute from './components/routing/PrivateRoute';
+import Portfolio from './components/pages/Portfolio';
 import './App.css';
 
 import PostState from './context/post/PostState';
@@ -30,6 +31,7 @@ const App = () => {
                 <Alerts />
                 <Switch>
                   <PrivateRoute exact path='/' component={Feed} />
+                  <PrivateRoute exact path='/Portfolio' component={Portfolio} />
                   <Route exact path='/About' component={About} />
                   <Route exact path='/Register' component={Register} />
                   <Route exact path='/Login' component={Login} />

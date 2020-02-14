@@ -17,7 +17,6 @@ const PostItem = ({ post }) => {
     <div className='card bg-light'>
       <h3 className='text-primary text-left'>
         {title}
-
         <img src={productImage} />
       </h3>
       <ul>
