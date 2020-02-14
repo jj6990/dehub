@@ -60,7 +60,7 @@ const PostForm = props => {
         onChange={onChange}
       />
       <input
-        type='file'
+        type='text'
         name='productImage'
         value={productImage}
         onChange={onChange}

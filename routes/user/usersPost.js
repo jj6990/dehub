@@ -84,7 +84,7 @@ router.post('/', authU, upload.single('productImage'), (req, res, next) => {
     _id: new mongoose.Types.ObjectId(),
     title: title,
     description: description,
-    productImage: req.file.path
+    productImage: productImage
   });
   post
     .save()
