@@ -49,7 +49,7 @@ const PostState = props => {
 
     try {
       const res = await axios.post('/api/feed', post, config);
-      console.log(res.post);
+      console.log(res.data);
       dispatch({ type: ADD_POST, payload: res.data });
     } catch (err) {
       dispatch({

@@ -9,6 +9,7 @@ import Login from './components/auth/Login';
 import PrivateRoute from './components/routing/PrivateRoute';
 import Portfolio from './components/pages/Portfolio';
 import './App.css';
+import './cards.css';
 
 import PostState from './context/post/PostState';
 import AuthState from './context/auth/AuthState';
